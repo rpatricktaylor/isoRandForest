@@ -52,9 +52,8 @@ class IsoRandForest:
     Attributes
     ----------
     anom_scores: List (floats)
-        Anomaly scores for each observation (ranges between 0.5 and 1)
-        Each anomaly score ranges between 0.5 and 1 with higher scores
-        corresponding to points being more likely to be anomalous
+        Anomaly scores for each observation (ranges between 0 and 1 --
+        higher scores correspond to points which are more likely to be anomalous)
     trees: List (IsoTrees)
         Random trees which comprise the ensemble
     c_n: Float
@@ -73,22 +72,22 @@ class IsoRandForest:
 
     class IsoTree:
         '''IsoTree is (non-recombining) binary tree which serves as the
-       primary data structure of the ensemble. The IsoRandForest classifier
-       is comprised of a list of IsoTrees.
-       Each node in an IsoTree consists of an axis along which a split
-       is made and the location of the split. The complete tree encodes
-       a partitioning of the original data into several hyper-rectangular
-       regions.
+           primary data structure of the ensemble. The IsoRandForest classifier
+           is comprised of a list of IsoTrees.
+           Each node in an IsoTree consists of an axis along which a split
+           is made and the location of the split. The complete tree encodes
+           a partitioning of the original data into several hyper-rectangular
+           regions.
 
-       Parameters
-       ----------
-       maxDepth: Int
-          The maximum allowable depth of the tree
+           Parameters
+           ----------
+           maxDepth: Int
+              The maximum allowable depth of the tree
 
-       Attributes
-       ----------
-       root: IsoTreeNode
-          The root node of the binary tree
+           Attributes
+           ----------
+           root: IsoTreeNode
+              The root node of the binary tree
           '''
 
        # Interface:
